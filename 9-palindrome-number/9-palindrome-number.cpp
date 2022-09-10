@@ -1,24 +1,26 @@
 class Solution {
 public:
-    bool isPalindrome(int x) {
-     
-        if(x <0 || (x!=0 && x % 10 ==0)){
+    bool isPalindrome(int n) {
+        if(n < 0 || (n !=0 && n %10 == 0)){
             return false;
         }
+       int m = n;
+
+int computedValue = 0;
+
+while(n > computedValue){
+	int temp = n % 10;
+	computedValue = computedValue*10 + temp;
+	n /=10;
+}
         
-        int res=0;
-        while(x > res){
-            int rem = x % 10;
-            
-            res = res * 10 + rem;
-            
-            x /=10;
-        }
-        
-        if(x == res || x == res/10){
+        if(computedValue == n || computedValue/10 == n){
             return true;
-        } else{
+        }
+        else
+        {
             return false;
         }
+        
     }
 };
